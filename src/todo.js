@@ -1,10 +1,36 @@
 // todo.js
+let storage;
+
+function addItemHandler() {
+    console.log('in addItemHandler');
+
+
+}
 
 
 
 
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log('DOM loaded and parsed');
+
+    const headerOne = document.querySelector('h1');
+    let el = document.createElement('div');
+    el.setAttribute('class', 'container');
+    headerOne.appendChild(el);
+
+    const plusDiv = document.querySelector('.container');
+    console.log(plusDiv);
+    el = document.createElement('input');
+    el.setAttribute('type', 'button');
+    el.setAttribute('value', '+');
+    el.setAttribute('id', 'add-item-button')
+    console.log(el);
+    plusDiv.appendChild(el);
+
+    el.addEventListener('click', addItemHandler, true);
+
+
+
 
 })
 
@@ -19,3 +45,5 @@ window.addEventListener('DOMContentLoaded', (e) => {
 //     expand a single todo to see / edit details
 // delete a todo
 // Store data in localStorage
+// date-fns bunch of handy functions to format and manipulate
+//  dates and times
