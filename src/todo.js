@@ -4,7 +4,7 @@ let storage;
 function addItemHandler() {
     console.log('in addItemHandler');
 
-    //
+    // add new row to list of todos
     const listRow = document.querySelector('.container');
     console.log(listRow);
 
@@ -12,15 +12,16 @@ function addItemHandler() {
     el.setAttribute('class', 'list-item');
     listRow.appendChild(el);
 
-    const listItem = document.querySelector('.list-item')
+    //add checkbox and text input box to newly added row
+    const listItem = document.querySelector('.list-item:last-child')
 
     el = document.createElement('input')
     el.setAttribute('type', 'checkbox');
-    // el.setAttribute('value', 'completed');
     listItem.appendChild(el);
 
     let newEl = document.createElement('input');
     newEl.setAttribute('type', 'text');
+    newEl.setAttribute('size', '100');
     listItem.appendChild(newEl);
 
 }
