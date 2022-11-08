@@ -1,5 +1,20 @@
 // todo.js
 let storage;
+// push data to storage then update localStorage with
+// storage record after it has been stringified
+
+textInputHandler = (event) => {
+    console.log('in textInputHandler');
+    localStorage.todoInput = event.target.value;
+    console.log(localStorage.todoInput);
+};
+
+checkboxHandler = (event) => {
+    console.log('in textInputHandler');
+    localStorage.checkboxStatus = event.target.value;
+    console.log(localStorage.checkboxStatus);
+}
+
 
 function addItemHandler() {
     console.log('in addItemHandler');
@@ -17,17 +32,22 @@ function addItemHandler() {
 
     el = document.createElement('input')
     el.setAttribute('type', 'checkbox');
+    el.setAttribute('id', 'checkboxId');
     listItem.appendChild(el);
 
-    let newEl = document.createElement('input');
-    newEl.setAttribute('type', 'text');
-    newEl.setAttribute('size', '100');
-    listItem.appendChild(newEl);
+    el = document.querySelector('input#checkboxId');
+    el.addEventListener('change', checkboxHandler, true);
 
+    el = document.createElement('input');
+    el.setAttribute('type', 'text');
+    el.setAttribute('size', '100');
+    el.setAttribute('id', 'input-text');
+    listItem.appendChild(el);
+
+    el = document.querySelector('input#input-text');
+    console.log(el);
+    el.addEventListener('change', textInputHandler, true);
 }
-
-
-
 
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log('DOM loaded and parsed');
