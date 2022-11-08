@@ -5,16 +5,24 @@ let storage;
 
 textInputHandler = (event) => {
     console.log('in textInputHandler');
+    console.log(event);
+    console.log(event.target.value);
     localStorage.todoInput = event.target.value;
+
     console.log(localStorage.todoInput);
 };
 
 checkboxHandler = (event) => {
-    console.log('in textInputHandler');
+    console.log('in checkboxHandler');
     localStorage.checkboxStatus = event.target.value;
     console.log(localStorage.checkboxStatus);
 }
 
+dueDateHandler = (event) => {
+    console.log('in dueDateHandler');
+    localStorage.dueDate = event.target.value;
+    console.log(localStorage.dueDate);
+}
 
 function addItemHandler() {
     console.log('in addItemHandler');
@@ -27,26 +35,33 @@ function addItemHandler() {
     el.setAttribute('class', 'list-item');
     listRow.appendChild(el);
 
-    //add checkbox and text input box to newly added row
+    //add checkbox, text input box, and date to newly added row
     const listItem = document.querySelector('.list-item:last-child')
-
+    // checkbox
     el = document.createElement('input')
     el.setAttribute('type', 'checkbox');
     el.setAttribute('id', 'checkboxId');
     listItem.appendChild(el);
-
-    el = document.querySelector('input#checkboxId');
+    el = document.querySelector('input#checkboxId:last-child');
     el.addEventListener('change', checkboxHandler, true);
-
+    // text input box
     el = document.createElement('input');
     el.setAttribute('type', 'text');
     el.setAttribute('size', '100');
     el.setAttribute('id', 'input-text');
     listItem.appendChild(el);
-
-    el = document.querySelector('input#input-text');
-    console.log(el);
+    el = document.querySelector('input#input-text:last-child');
     el.addEventListener('change', textInputHandler, true);
+    // date
+    el = document.createElement('input');
+    el.setAttribute('type', 'date');
+    el.setAttribute('id', 'due-date');
+    el.setAttribute('name', 'duedate');
+    listItem.appendChild(el);
+    el = document.querySelector('input#due-date:last-child');
+    console.log(el);
+    el.addEventListener('change', dueDateHandler, true);
+
 }
 
 window.addEventListener('DOMContentLoaded', (e) => {
