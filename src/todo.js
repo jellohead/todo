@@ -23,11 +23,7 @@ function addItemHandler() {
     newEl.setAttribute('type', 'text');
     newEl.setAttribute('size', '100');
     listItem.appendChild(newEl);
-
 }
-
-
-
 
 window.addEventListener('DOMContentLoaded', (e) => {
     console.log('DOM loaded and parsed');
