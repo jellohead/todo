@@ -14,7 +14,7 @@ textInputHandler = (event) => {
 
 checkboxHandler = (event) => {
     console.log('in checkboxHandler');
-    localStorage.checkboxStatus = event.target.value;
+    localStorage.checkboxStatus = event.target.checked;
     console.log(localStorage.checkboxStatus);
 }
 
